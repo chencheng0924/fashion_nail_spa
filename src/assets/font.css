@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: url("./fonts/NotoSans-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("./fonts/NotoSans-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("./fonts/NotoSans-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("./fonts/NotoSans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Agbalumo";
+  src: url("./fonts/Agbalumo-Regular.ttf");
+}
+@font-face {
+  font-family: "Jomolhari";
+  src: url("./fonts/Jomolhari-Regular.ttf");
+}
+@font-face {
+  font-family: "KaiseiDecol";
+  src: url("./fonts/KaiseiDecol-Regular.ttf");
+}
+@font-face {
+  font-family: "InriaSans";
+  src: url("./fonts/InriaSans-Regular.ttf");
+}
+@font-face {
+  font-family: "JosefinSlab";
+  src: url("./fonts/JosefinSlab-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "KaushanScript";
+  src: url("./fonts/KaushanScript-Regular.ttf");
+}
