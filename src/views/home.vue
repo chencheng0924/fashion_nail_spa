@@ -99,6 +99,16 @@ const closeBigPhoto = () => {
   const elHtml = document.querySelector('html')
   elHtml.style.overflowY = null
 }
+const linkToIg = () => {
+  window.open('https://www.instagram.com/fashion.nail.spa/')
+}
+const footerList = ref([
+  {title: 'ADDRESS', content: ['59 Outwater Ln, Garfield,', 'NJ 07026'], type: 1},
+  {title: 'CONTACT', content: ['Tel: (646) 980-9666'], type: 1},
+  {title: 'BUSINESS HOURS', content: ['Mon-Fri: 9:30am-7:30pm', 'Saturday: 9:30am-7:00pm', 'Sunday - 10:00am-6:00pm'], type: 1},
+  {title: 'STAY UPDATED', type: 2},
+])
+const emailInput = ref('')
 </script>
 
 <template>
@@ -164,129 +174,64 @@ const closeBigPhoto = () => {
         <div class="lato w-[60vw]">Experience the epitome of luxury and relaxation at our No.1 Best Nail Spa in NY, New York. With an unrivaled reputation for excellence, we offer a comprehensive range of services that cater to your every nail care need. Our expert technicians specialize in manicures, pedicures, tips, SNS treatments, spa pedicures, spa manicures, and nail design, ensuring that you leave our spa feeling utterly pampered and looking stunning.</div>
       </div>
     </div>
-    <div class="w-screen flex items-center flex-col pt-[111px] pb-[189px] px-20" >
-      <div class="max-w-[1200px] w-full flex flex-wrap gap-5 justify-between mobile:hidden">
-        <img :src="getAssetsFile(`d${pic}.png`)" alt="" v-for="pic in 5" class="w-[191px] h-[250px] tablet:w-[100%] tablet:h-auto object-cover cursor-pointer" @click="show('d', pic, 5)">
+    <div class="w-screen h-[22rem] mobile:hidden">
+      <img class="w-full h-full object-cover" src="@/assets/img/nails.png" alt="fashion_nail_spa">
+    </div>
+    <div class="w-full justify-center mobile:flex mobile:mt-[1rem] hidden">
+      <img class="w-[85%] h-[85%] object-cover" src="@/assets/img/phoneNails.jpg" alt="fashion_nail_spa">
+    </div>
+    <div class="w-full h-full bg-white justify-center items-center mobile:hidden">
+      <img class="w-full h-full object-cover" src="@/assets/img/service.png" alt="fashion_nail_spa">
+    </div>
+    <div class="hidden mobile:flex mobile:flex-col mobile:items-center mb-[1.5rem]">
+      <div v-for="(item, index) in 5" :key="index" class="w-[85%]">
+        <img :src="getAssetsFile(`serviceMb${index + 1}.jpg`)"
+        class="w-full object-cover cursor-pointer">
       </div>
     </div>
-    <div v-if="isComputer" class="flex flex-col justify-center items-center gap-[2rem] py-[5rem] bg-[#F4CC82] mobile:hidden">
-      <div id="SERVICES" class="text-[36px] font-[700] text-[#865105]">Services & Prices</div>
-      <div class="flex items-center px-[10%] gap-10">
-        <img @click="show('service', 0, 1)" class="w-[35rem] h-[42rem] object-contain" src="@/assets/img/service0.png" alt="">
-        <div class="w-[26rem] flex flex-col relative">
-          <img class="w-[24rem] h-[16rem] object-cover" src="@/assets/img/servicePic1.jpg" alt="">
-          <div class="w-[24rem] h-[16rem]" />
-          <img class="w-[24rem] h-[16rem] object-cover absolute right-0 bottom-[3%]" src="@/assets/img/servicePic2.jpg" alt="">
-        </div>
+    <div class="flex justify-center items-center py-[7rem] gap-[2rem] mobile:hidden">
+      <div class="w-[497px] h-[414px] relative">
+        <img class="w-full h-full" src="@/assets/img/ins1.png" alt="fashion_nail_spa">
+        <img @click="linkToIg" class="absolute right-[1rem] bottom-[1rem] cursor-pointer" src="@/assets/img/ig.png" alt="fashion_nail_spa">
+      </div>
+      <div class="w-[418px] h-[498px]">
+        <img class="w-full h-full" src="@/assets/img/ins2.png" alt="fashion_nail_spa">
       </div>
     </div>
-    <div v-else class="flex flex-col justify-center items-center bg-[#F4CC82] desktop:hidden pt-[70px] px-[24px] pb-[62px]">
-      <div id="SERVICES" class="font-[700] text-[#865105]">Services & Prices</div>
-      <img class="w-full object-contain mt-[24px]" src="@/assets/img/service0.png" alt="">
-      <div class="w-[90%] mt-[42px]">
-        <!-- ?推不上去？ -->
-        <Carousel :snapAlign="'center'" :breakpoints="breakpointsM">
-          <Slide v-for="slide in 5" :key="slide" @click="show('d', slide, 5)">
-            <div class="carousel__item">
-              <!-- <img :src="getAssetsFile(`m${slide}.png`)" class="w-[200px]"> -->
-              <img :src="getAssetsFile(`d${slide}.png`)" class="w-[220px] h-[281px] object-cover cursor-pointer">
-            </div>
-          </Slide>
-          <template #addons>
-            <Navigation />
-          </template>
-        </Carousel>
+    <div class="mobile:flex mobile:flex-col mobile:items-center hidden">
+      <div class="w-[85%] h-[249px] relative">
+        <img class="w-full h-full" src="@/assets/img/insMb2.jpg" alt="fashion_nail_spa">
+        <img @click="linkToIg" class="w-[74px] h-[24px] absolute left-[15%] bottom-[25%] cursor-pointer" src="@/assets/img/ig.png" alt="fashion_nail_spa">
       </div>
-      <!-- <div class="flex items-center px-[10%] gap-10">
-        <div class="w-[26rem] flex flex-col relative">
-          <img class="w-[24rem] h-[16rem] object-cover" src="@/assets/img/servicePic1.jpg" alt="">
-          <div class="w-[24rem] h-[16rem]" />
-          <img class="w-[24rem] h-[16rem] object-cover absolute right-0 bottom-[3%]" src="@/assets/img/servicePic2.jpg" alt="">
-        </div>
-      </div> -->
-    </div>
-    <div class="iconList">
-      <div v-for="(item, index) in iconList" :key="index">
-        <img :src="getAssetsFileIcon(`${index + 1}.svg`)" alt="">
-        {{ item }}
+      <div class="w-[70%] h-[274px]">
+        <img class="w-full h-full" src="@/assets/img/insMb1.jpg" alt="fashion_nail_spa">
       </div>
     </div>
-    <!-- NAIL IT WITH STYLE! -->
-    <div id="CONTACT US" class="w-screen flex h-[23rem] mobile:h-full igArea">
-      <img src="@/assets/img/pp.png" alt="" class="w-[30%] mobile:h-[16rem] object-cover">
-      <div class="w-[80%] bg-[#E1DFD6] flex flex-col items-center justify-center gap-5">
-        <span class="leading-[38.22px] text-[32px] font-bold mb-5" style="font-family: JosefinSlab;letter-spacing: 5px;">NAIL IT WITH STYLE!</span>
-        <div class="flex gap-5 items-center">
-          <img src="@/assets/img/ig.svg" alt="" class="w-[58px] h-[58px] mr-5">
-          <div class="flex flex-col items-center justify-between">
-            <div class="text-[24px]" style="font-family: KaushanScript;letter-spacing: 5px;">Follow & Share</div>
-            <a href="https://www.instagram.com/una.nail.a" target="_blank" class="underline text-[24px]" style="font-family: KaiseiDecol;letter-spacing: 2px;">@una.nail.a</a>
+    <div id="footer" class="w-full h-[20rem] flex justify-center items-center bg-[#FEF2E8] mobile:hidden">
+      <div class="flex justify-evenly w-full max-w-[1200px]">
+        <div v-for="(item, index) in footerList" :key="index" class="flex flex-col gap-[1rem]">
+          <div class="font-[700]">{{ item.title }}</div>
+          <div v-if="item.type == 1">
+            <div v-for="(item2, index2) in item.content" :key="index2" class="text-[14px] font-[400]">{{ item2 }}</div>
+          </div>
+          <div v-else class="flex flex-col gap-[1rem]">
+            <el-input class="h-[37px]" v-model="emailInput" placeholder="Enter your email here*" />
+            <div class="h-[37px] bg-black text-white text-[12px] font-[400] py-[0.8rem] px-[2.5rem] text-center">subscribe</div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div v-if="isComputer" class="iconList">
-      <div v-for="(item, index) in iconList" :key="index">
-        <img :src="getAssetsFileIcon(`${index + 1}.svg`)" alt="">
-        {{ item }}
-      </div>
-    </div> -->
-    <div class="footer !bg-[#F4CC82]">
-      <div class="CONTACT">
-        <div  class="footerSection">
-          <div class="footerContent">
-            <div class="section1">
-              <div class="title mb-3">UNA NAIL</div>
-              <div class="flex flex-col">
-                <div>PHONE</div>
-                <div class="font-[600]">+1 631-521-6999</div>
-              </div>
-              <div class="flex flex-col">
-                <div>ADDRESS</div>
-                <div class="font-[600]">1610 B, Grand Ave, Baldwin, NY 11510</div>
-              </div>
-              <div>@2024 UNA NAIL. All Rights Reserved.</div>
-            </div>
-            <!-- <div class="section2">
-              <div class="time">OPENING HOURS</div>
-              <div>Monday - Saturday<hr>10:00 - 19:30</div>
-              <div>Sunday<hr>10:00 - 18:00</div>
-            </div> -->
-            <div class="section3">
-              <div v-for="(item, index) in optionList" :key="index" @click="scrollTo(item)" class="font-[700]">{{ item }}</div>
-            </div>
+    <div id="footer" class="mobile:w-full mobile:h-full mobile:flex mobile:justify-center mobile:items-center mobile:bg-[#fff] hidden">
+      <div class="flex flex-col justify-center items-center w-[80%] max-w-[1200px] bg-[#FEF2E8] py-[1rem] gap-[2rem]">
+        <div v-for="(item, index) in footerList" :key="index" class="flex flex-col gap-[0.5rem] w-[75%]">
+          <div class="font-[700]">{{ item.title }}</div>
+          <div v-if="item.type == 1">
+            <div v-for="(item2, index2) in item.content" :key="index2" class="text-[14px] font-[400]">{{ item2 }}</div>
           </div>
-          <div class="footerImg"><img src="../assets/img/footerImg.png" alt=""></div>
-        </div>
-        <div class="phoneFooterSection gap-10">
-          <div class="text-[20px] font-[700] mb-[1rem]">UNA NAIL</div>
-          <div class="flex flex-col gap-2">
-            <div class="cursor-pointer my-1 font-[700] mobile:font-[400]" v-for="(item, index) in optionList" :key="index" @click="scrollTo(item)">{{ item }}</div>
+          <div v-else class="flex flex-col gap-[1rem] w-[80%]">
+            <el-input class="h-[37px]" v-model="emailInput" placeholder="Enter your email here*" />
+            <div class="h-[37px] bg-black text-white text-[12px] font-[400] py-[0.8rem] px-[2.5rem] text-center">subscribe</div>
           </div>
-          <div class="flex flex-col gap-2">
-            <div class="flex flex-col">
-              <div class="mobile:font-[600]">PHONE</div>
-              <div class="font-[600] mobile:font-[300]">+1 631-521-6999</div>
-            </div>
-            <div class="flex flex-col">
-              <div class="mobile:font-[600]">ADDRESS</div>
-              <div class="font-[600] mobile:font-[300]">1610 B, Grand Ave, Baldwin, NY 11510</div>
-            </div>
-          </div>
-          <div class="mb-2">
-            <div class="mobile:font-[600]">OPENING HOURS</div>
-            <div class="flex flex-col font-[600] mobile:font-[300]">
-              <div class="flex justify-between items-center">
-                <div>Monday - Saturday</div>
-                <div>10:00 - 19:30</div>
-              </div>
-              <div class="flex justify-between items-center">
-                <div>Sunday</div>
-                <div>10:00 - 18:00</div>
-              </div>
-            </div>
-          </div>
-          <div class="text-[10px] font-[300]">@2024 UNA NAIL. All Rights Reserved.</div>
         </div>
       </div>
     </div>
@@ -453,80 +398,9 @@ const closeBigPhoto = () => {
     }
   }
 }
-.footer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // padding: 50px 0 0 ;
-  gap: 50px;
-  .CONTACT{
-    width: 100%;
-  }
-  .footerSection{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 341px;
-    .footerContent{
-      background-color: #F4CC82;
-      width: 60%;
-      height: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      .section1{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        >div{
-          font-family: KaiseiDecol;
-          font-size: 14px;
-          font-weight: 400;
-        }
-        .title{
-          font-weight: 700;
-          font-size: 24px;
-          font-family: Jomolhari;
-        }
-      }
-      .section2{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        >div{
-          font-family: 'KaiseiDecol';
-          font-size: 14px;
-          font-weight: 400;
-        }
-        .time{
-          font-size: 16px;
-        }
-      }
-      .section3{
-        >div{
-          font-family: KaiseiDecol;
-          font-size: 14px;
-          cursor: pointer;
-        }
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
-    .footerImg{
-      width: 40%;
-      height: 100%;
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-  .phoneFooterSection{
-    display: none;
-  }
+:deep(.el-input__wrapper){
+  background: transparent;
+  border: 2px solid black;
 }
 // @media screen and (min-width: 768px) and (max-width: 1280px) 
 @media screen and (max-width: 768px) {
