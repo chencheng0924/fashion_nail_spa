@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, watch, computed } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
+import emailjs from '@emailjs/browser'
+import { ElMessage } from 'element-plus'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import { getAssetsFile } from '@/utils/commonUse'
 components: {
@@ -109,6 +111,32 @@ const footerList = ref([
   {title: 'STAY UPDATED', type: 2},
 ])
 const emailInput = ref('')
+const successMes = () => {
+  ElMessage('successfully subscribe.')
+}
+const submitForm = async (formEl) => {
+  if (!formEl) return
+  await formEl.validate(async (valid) => {
+    if (valid) {
+      btnDis.value = true
+      const mailData = {
+        Name: tableForm.name,
+        email: tableForm.email,
+        message: tableForm.message,
+      }
+      emailjs.send('service_dmyuq3x', 'template_wpc6tuk', mailData, 'Gj4qVySalyOlMjmDT').then(() => {
+        tableForm.name = ''
+        tableForm.email = ''
+        tableForm.message = ''
+        btnDis.value = false
+        successMes()
+      })
+      return true
+    } else {
+      return false
+    }
+  })
+} 
 </script>
 
 <template>
