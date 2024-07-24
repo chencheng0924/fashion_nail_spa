@@ -112,7 +112,10 @@ const footerList = ref([
 ])
 const emailInput = ref('')
 const successMes = () => {
-  ElMessage('successfully subscribe.')
+  ElMessage({
+    message: 'successfully subscribe.',
+    type: 'success',
+  })
 }
 const submitForm = async (formEl) => {
   if (!formEl) return
